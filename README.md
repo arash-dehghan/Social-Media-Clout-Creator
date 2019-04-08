@@ -8,3 +8,5 @@ Once enough videos have been downloaded and saved, the program automatically con
 This can also be done for photos and GIFs. 
 
 To run these programs, you must setup varying API's which are specified in the files in each folder.
+
+For an example of how successful this project has been, take a look at the "Example of Success" Folder!

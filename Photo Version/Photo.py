@@ -71,13 +71,13 @@ def InstagramPoster(photo,description,credit):
     from InstagramAPI import InstagramAPI
     from PIL import Image
 
-    InstagramAPI = InstagramAPI("mybestwatchesxx", "JackKennedy")
+    InstagramAPI = InstagramAPI("YOUR INSTAGRAM USERNAME", "YOUR INSTAGRAM PASSWORD")
     InstagramAPI.login()
     try:
         im = Image.open('picture_to_post.jpg')
         rgb_im = im.convert('RGB')
         rgb_im.save('picture_to_post.jpg')
-        mycaption = '"' + description + '"' + " (Via: " + credit + ")\n\n.\n.\n.\n.\n.\n.\n#Minecraft #MinecraftFanPage #minecrafters #minecraftonly #minecraftersonly #minecraftpage #minecrafts #minecraftforever #minecraftdaily #minecraftcommunity #minecraftcreation"
+        mycaption = '"' + description + '"' + " (Via: " + credit + ")\n\n.\n.\n.\n.\n.\n.\n#YOURHASHTAGS"
         try:
             InstagramAPI.uploadPhoto('picture_to_post.jpg', caption=mycaption)
 

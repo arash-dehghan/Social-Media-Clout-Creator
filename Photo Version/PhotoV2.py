@@ -33,6 +33,19 @@ def File_Exists(filepath):
     file_exists = os.path.exists(filepath)
     return file_exists
 
+def NumberOfPosts(username):
+    import requests
+    from bs4 import BeautifulSoup
+
+    html = requests.get('https://www.instagram.com/{}/'.format(username))
+    soup = BeautifulSoup(html.text, 'lxml')
+    item = soup.select_one("meta[property='og:description']")
+
+    posts = item.get("content").split(",")[2]
+    number_of_posts = posts.split(" ")[1]
+
+    return int(number_of_posts)
+
 def Get_Photo():
     """
     Get_Photo function signs into reddit, goes to your selected subreddit, and grabs data regarding a selected number of posts. If a certain post meets the required criteria, then it downloads, writing it into the database.
@@ -97,9 +110,9 @@ def InstagramPoster(photo,description,credit):
     InstagramAPI = Client(instagram_username, instagram_password)
 
     try:
-        mycaption = '"' + description + '"' + " (Via: u/" + credit + ")\n\n.\n.\n.\n.\n.\n.\n"+insta_hashtags
+        mycaption = '"' + description + '"' + " (Via: " + credit + ")\n\n.\n.\n.\n.\n.\n.\n"+insta_hashtags
         try:
-
+            post_before = NumberOfPosts(instagram_username)
             photo_data, photo_size = media.prepare_image('picture_to_post.jpg', aspect_ratios=MediaRatios.standard)
             InstagramAPI.post_photo(photo_data, photo_size, caption=mycaption)
 

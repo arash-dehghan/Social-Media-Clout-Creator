@@ -28,7 +28,6 @@ insta_hashtags = "#Your #Hashtags #Here"
 '------------------------------------------------------------------------'
 
 
-
 def File_Exists(filepath):
     file_exists = os.path.exists(filepath)
     return file_exists
@@ -110,7 +109,7 @@ def InstagramPoster(photo,description,credit):
     InstagramAPI = Client(instagram_username, instagram_password)
 
     try:
-        mycaption = '"' + description + '"' + " (Via: " + credit + ")\n\n.\n.\n.\n.\n.\n.\n"+insta_hashtags
+        mycaption = '"' + description + '"' + " (Via: u/" + credit + ")\n\n.\n.\n.\n.\n.\n.\n"+insta_hashtags
         try:
             post_before = NumberOfPosts(instagram_username)
             photo_data, photo_size = media.prepare_image('picture_to_post.jpg', aspect_ratios=MediaRatios.standard)

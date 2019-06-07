@@ -97,7 +97,7 @@ def InstagramPoster(photo,description,credit):
     InstagramAPI = Client(instagram_username, instagram_password)
 
     try:
-        mycaption = '"' + description + '"' + " (Via: " + credit + ")\n\n.\n.\n.\n.\n.\n.\n"+insta_hashtags
+        mycaption = '"' + description + '"' + " (Via: u/" + credit + ")\n\n.\n.\n.\n.\n.\n.\n"+insta_hashtags
         try:
 
             photo_data, photo_size = media.prepare_image('picture_to_post.jpg', aspect_ratios=MediaRatios.standard)

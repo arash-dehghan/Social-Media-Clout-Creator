@@ -226,6 +226,9 @@ def InstagramPoster(photo,description,credit):
             post_before = NumberOfPosts(instagram_username)
             # photo_data, photo_size = media.prepare_image('picture_to_post.jpg', aspect_ratios=MediaRatios.standard)
             # InstagramAPI.post_photo(photo_data, photo_size, caption=mycaption)
+            im = Image.open("picture_to_post.jpg")
+            rgb_im = im.convert('RGB')
+            rgb_im.save('picture_to_post.jpg')
             image,size = prepare_image('picture_to_post.jpg')
             resize_image('picture_to_post.jpg','new_photo.jpg',size)
 
